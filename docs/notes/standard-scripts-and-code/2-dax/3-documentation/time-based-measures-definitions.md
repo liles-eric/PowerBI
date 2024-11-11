@@ -13,7 +13,6 @@ updated: 2024-11-11
 author: Eric Liles
 version: 1.0
 ---
-
 # Time-Based Measures Definitions
 
 This document provides detailed definitions and explanations of the DAX measures used in our Power BI projects for time-based analysis, including inventory, cost of goods sold (COGS), and other relevant time-series KPIs.
@@ -31,8 +30,12 @@ The `Average COGS $ Year (Base KPI)` measure calculates the average cost of good
 - **Purpose**: To assess the average cost of goods sold over the past year to monitor profitability and trends.
 
 ### Recommended Visuals:
-- **Line Chart**: Displays the average COGS over the past year.
+- **Line Chart**: Displays the average COGS over the past year, showing trends and patterns.
 - **KPI Visual**: Highlights the average COGS for quick insights.
+- **Bar Chart**: Compares the monthly or quarterly average COGS.
+- **Area Chart**: To show the accumulated average COGS over time.
+
+---
 
 ## 2. [Average Inventory $ Year (Base KPI)](#2-average-inventory-year-base-kpi)
 
@@ -49,6 +52,10 @@ The `Average Inventory $ Year (Base KPI)` measure calculates the average invento
 ### Recommended Visuals:
 - **Line Chart**: Displays the average inventory value over the past year.
 - **KPI Visual**: Highlights the average inventory value for performance tracking.
+- **Bar Chart**: Compares the monthly or quarterly inventory value.
+- **Stacked Area Chart**: To visualize changes in inventory across different periods.
+
+---
 
 ## 3. [WoW LW vs 2W # of Items % Var (KPI)](#3-wow-lw-vs-2w-items-percent-var-kpi)
 
@@ -65,6 +72,10 @@ The `WoW LW vs 2W # of Items % Var (KPI)` measure calculates the percentage vari
 ### Recommended Visuals:
 - **Column Chart**: Displays the percentage variance of items over the past two weeks.
 - **KPI Visual**: Shows the percentage change for easy comparison.
+- **Bullet Chart**: Compares the percentage variance against a predefined target or goal.
+- **Waterfall Chart**: To show the cumulative impact of the variance between weeks.
+
+---
 
 ## 4. [WoW LW vs 2W # of Items Var (Base KPI)](#4-wow-lw-vs-2w-items-var-base-kpi)
 
@@ -81,6 +92,10 @@ The `WoW LW vs 2W # of Items Var (Base KPI)` measure calculates the difference i
 ### Recommended Visuals:
 - **Bar Chart**: Displays the variance in the number of items between the two weeks.
 - **KPI Visual**: Highlights the variance to help spot large fluctuations.
+- **Clustered Bar Chart**: Compare item variance across multiple weeks or periods.
+- **Stacked Column Chart**: To compare variance between different categories or product groups.
+
+---
 
 ## 5. [WoW LW vs 2W Total Inv $ % Var (KPI)](#5-wow-lw-vs-2w-total-inv-percent-var-kpi)
 
@@ -97,6 +112,10 @@ The `WoW LW vs 2W Total Inv $ % Var (KPI)` measure calculates the percentage var
 ### Recommended Visuals:
 - **Column Chart**: Displays the percentage change in total inventory value.
 - **KPI Visual**: Highlights the percentage change for easy evaluation.
+- **Waterfall Chart**: Shows the cumulative effect of inventory value changes over time.
+- **Line Chart**: Tracks percentage changes in inventory value over multiple weeks or months.
+
+---
 
 ## 6. [WoW LW vs 2W Total Inv $ Var (Base KPI)](#6-wow-lw-vs-2w-total-inv-var-base-kpi)
 
@@ -113,6 +132,10 @@ The `WoW LW vs 2W Total Inv $ Var (Base KPI)` measure calculates the difference 
 ### Recommended Visuals:
 - **Bar Chart**: Displays the variance in total inventory value.
 - **KPI Visual**: Highlights the variance to identify significant changes.
+- **Stacked Column Chart**: To show the relative contribution of different factors to the variance.
+- **Treemap**: To visualize the share of total inventory value changes across different categories.
+
+
 
 
 

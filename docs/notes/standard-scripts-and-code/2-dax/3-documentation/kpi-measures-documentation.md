@@ -26,6 +26,7 @@ version: 1.0
 - **Recommended Visuals**:
   - **Line Chart**: Shows the trend of average COGS over time.
   - **KPI Visual**: Displays the average COGS for a quick assessment.
+  - **Area Chart**: Highlights fluctuations in the average COGS throughout the year.
 
 ---
 
@@ -39,6 +40,7 @@ version: 1.0
 - **Recommended Visuals**:
   - **Bar Chart**: Displays the average inventory value over time.
   - **KPI Visual**: Highlights the total average inventory value.
+  - **Stacked Column Chart**: Shows inventory changes across multiple categories (e.g., product type) over time.
 
 ---
 
@@ -52,6 +54,7 @@ version: 1.0
 - **Recommended Visuals**:
   - **Column Chart**: Displays the percentage change in the number of items.
   - **KPI Visual**: Highlights the percentage variance.
+  - **Bullet Chart**: Provides a visual comparison of the current variance against a set target or previous period.
 
 ---
 
@@ -65,6 +68,7 @@ version: 1.0
 - **Recommended Visuals**:
   - **Column Chart**: Displays the variance in the number of items.
   - **KPI Visual**: Highlights the total variance in item count.
+  - **Waterfall Chart**: Illustrates the incremental changes in item count over time.
 
 ---
 
@@ -78,6 +82,7 @@ version: 1.0
 - **Recommended Visuals**:
   - **Column Chart**: Displays the percentage change in total inventory value.
   - **KPI Visual**: Highlights the percentage variance in total inventory value.
+  - **Line Chart**: Shows the trend of total inventory value over time with a focus on percentage variation.
 
 ---
 
@@ -91,3 +96,6 @@ version: 1.0
 - **Recommended Visuals**:
   - **Column Chart**: Displays the variance in total inventory value.
   - **KPI Visual**: Highlights the variance in inventory value for quick review.
+  - **Waterfall Chart**: Visualizes the absolute differences in inventory value over the two-week period.
+
+

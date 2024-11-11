@@ -33,6 +33,7 @@ The `# of Items (Base)` measure counts the number of unique items based on the `
 ### Recommended Visuals:
 - **Column Chart**: Displays the number of distinct items in the inventory.
 - **KPI Visual**: Highlights the total number of distinct items.
+- **Pie Chart**: Can also be used to represent the proportion of items in various categories.
 
 ---
 
@@ -51,6 +52,7 @@ The `Total Inventory (Base)` measure sums up the `Inv_ExtPrice` values in the `I
 ### Recommended Visuals:
 - **Stacked Column Chart**: Displays total inventory value over time.
 - **KPI Visual**: Highlights the total value of inventory for quick overview.
+- **Line Chart**: Can display the trend in inventory value over time.
 
 ---
 
@@ -69,6 +71,7 @@ The `Total COGS (Base)` measure calculates the total cost of goods sold by summi
 ### Recommended Visuals:
 - **Line Chart**: Displays COGS trends over time.
 - **KPI Visual**: Highlights the total COGS for a specific period.
+- **Area Chart**: Can show the cumulative COGS over time.
 
 ---
 
@@ -87,6 +90,7 @@ The `Total Inventory Qty (Base)` measure sums the `Quantity` values in the `Inve
 ### Recommended Visuals:
 - **Bar Chart**: Displays the total inventory quantity by category or location.
 - **KPI Visual**: Highlights the total inventory quantity for immediate analysis.
+- **Tree Map**: Can visualize inventory quantities by category.
 
 ---
 
@@ -105,6 +109,7 @@ The `Total COGS $ Year (Base)` measure sums the `Ext COGS $` values from the `Tr
 ### Recommended Visuals:
 - **Column Chart**: Displays total COGS over the past year, helping to compare monthly or quarterly trends.
 - **KPI Visual**: Highlights the total COGS for the past year for quick insights.
+- **Line Chart**: Shows the COGS trend over the past year.
 
 ---
 
@@ -123,6 +128,7 @@ The `Total Inventory $ Year (Base)` measure sums the `Inv_ExtPrice` values from 
 ### Recommended Visuals:
 - **Stacked Column Chart**: Displays total inventory value over time for comparison across different periods.
 - **KPI Visual**: Highlights the total inventory value for the past year.
+- **Area Chart**: Can illustrate how inventory value has changed over the past year.
 
 ---
 
@@ -145,6 +151,7 @@ The `CurrentWeekNum` measure returns the week number based on the current date.
 ### Recommended Visuals:
 - **Card Visual**: Displays the current week number for quick reference.
 - **Bar Chart**: Displays weekly data trends with the week number on the axis.
+- **Line Chart**: Can display performance over the current week.
 
 ---
 
@@ -163,6 +170,7 @@ The `CurrentYear` measure returns the year part of today's date, making it usefu
 ### Recommended Visuals:
 - **Card Visual**: Displays the current year as a reference.
 - **Line Chart**: Displays current year data trends in comparison to previous years.
+- **Stacked Column Chart**: Compares data across multiple years with the current year highlighted.
 
 ---
 
@@ -181,6 +189,7 @@ The `LastRefreshedDate` measure returns the maximum date from the `Last Refresh 
 ### Recommended Visuals:
 - **Card Visual**: Displays the last refresh date for user awareness.
 - **KPI Visual**: Highlights the data freshness and updates the user on when the data was last refreshed.
+- **Text Box**: Displays the date as part of the report metadata.
 
 ---
 
@@ -199,6 +208,6 @@ The `Greeting` measure uses the current user's login and the current date to gen
 ### Recommended Visuals:
 - **Text Box**: Displays the personalized greeting message for the user.
 - **Card Visual**: Highlights key user-specific information like current week and date.
+- **Bullet Chart**: Can also be used to display personalized progress indicators with greeting messages.
 
----
 
