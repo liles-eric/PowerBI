@@ -6,7 +6,7 @@ created: 2024-11-04
 updated: 2024-11-04
 ---
 
-# DAX Definitions for Sales Measures
+# DAX Definitions for Base Measures
 
 This document offers concise definitions and explanations for DAX measures used in our business intelligence projects, sourced from transaction and dimension tables for analysis in Power BI and Excel PowerPivot.
 
