@@ -4,6 +4,8 @@ title: KPI Measures
 desc: This document provides detailed definitions and explanations of the DAX KPI measures used in our Power BI projects, including error handling information.
 created: 2024-11-04
 updated: 2024-11-04
+author: Eric Liles
+version: 1.0
 ---
 
 # KPI Measures

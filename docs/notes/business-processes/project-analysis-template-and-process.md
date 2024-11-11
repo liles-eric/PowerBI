@@ -4,6 +4,8 @@ title: Project Analysis Template
 desc: Template for executing data analysis projects structured into Planning & Preparation, ETL & Analysis, and Delivery & Continuous Improvement phases.
 created: {{date:2024-11-04}}
 updated: {{date:2024-11-04}}
+author: Eric Liles
+version: 1.0
 ---
 
 # **Project Analysis Template**

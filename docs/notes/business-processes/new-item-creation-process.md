@@ -4,6 +4,8 @@ title: New Item Creation Process
 desc: Process for setting up new items in the system following best practices for Master Data Management (MDM).
 created: {{date:2024-11-04}}
 updated: {{date:2024-11-04}}
+author: Eric Liles
+version: 1.0
 ---
 
 # New Item Creation Process

@@ -4,6 +4,8 @@ title: Base and Misc Measures
 desc: This document provides detailed definitions and explanations of the DAX measures used in our Power BI projects, including both base and miscellaneous measures.
 created: 2024-11-04
 updated: 2024-11-04
+author: Eric Liles
+version: 1.0
 ---
 
 # Base and Misc Measures

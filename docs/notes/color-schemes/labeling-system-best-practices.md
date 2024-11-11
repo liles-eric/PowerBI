@@ -4,6 +4,8 @@ title: Labeling System Best Practices
 desc: This document outlines the best practices for using labels within the GHRA Warehouse Data Projects.
 created: {{date:2024-11-04}}
 updated: {{date:2024-11-04}}
+author: Eric Liles
+version: 1.0
 ---
 
 # Best Practice Documentation for Labeling System

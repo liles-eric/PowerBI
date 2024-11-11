@@ -4,6 +4,8 @@ title: Best Practices for Prompting ChatGPT in Supply Chain and Warehouse Operat
 desc: A comprehensive guide to crafting effective prompts for utilizing ChatGPT in supply chain and warehouse operations.
 updated: {{date:2024-11-04}}
 created: {{date:2024-11-04}}
+author: Eric Liles
+version: 1.0
 ---
 
 # Best Practices for Prompting ChatGPT in Supply Chain and Warehouse Operations

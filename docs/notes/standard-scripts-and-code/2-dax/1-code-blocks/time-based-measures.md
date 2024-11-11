@@ -4,6 +4,8 @@ title: Time-Based Measures
 desc: This document provides detailed definitions and explanations of the DAX time-based measures used in our Power BI project, including error handling.
 created: 2024-11-04
 updated: 2024-11-04
+author: Eric Liles
+version: 1.0
 ---
 # KPI Measures
 
