@@ -1,7 +1,13 @@
 ---
 id: dax-definitions-sales-measures
 title: DAX Definitions for Sales Measures
-desc: This document provides detailed definitions and explanations related to the DAX measures used in our Power BI projects, focusing on sales metrics derived from the GHRAWarehouse SQL Server.
+desc: This document provides detailed definitions and explanations related to the DAX measures used in our Power BI projects, focusing on sales metrics.
+tags:
+  - DAX
+  - Power BI
+  - Base Measures
+  - Business Intelligence
+  - KPIs
 created: {{date:2024-11-04}}
 updated: {{date:2024-11-04}}
 author: Eric Liles

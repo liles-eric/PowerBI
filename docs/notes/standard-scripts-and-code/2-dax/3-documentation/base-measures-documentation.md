@@ -1,223 +1,204 @@
 ---
-title: Base Measures
-description: Definitions, DAX code, and explanations for the base measures used in the Power BI model.
-created: 2024-11-11
-modified: 2024-11-11
+id: base-measures-definitions
+title: Base Measures Definitions
+desc: This document provides detailed definitions and explanations for the base DAX measures used in Power BI projects. It includes business explanations, measure explanations, example use cases, and recommended visuals for each base measure.
 tags:
   - DAX
   - Power BI
   - Base Measures
-  - Definitions
-  - Calculations
-  - Metrics
+  - Business Intelligence
+  - KPIs
+created: 2024-11-11
+updated: 2024-11-11
 author: Eric Liles
 version: 1.0
 ---
-# Base Measures
 
-**Purpose:** This document provides definitions and explanations for the base measures used in the Power BI model. For detailed information on how to use these measures, please refer to the README file.
+# Base Measures Definitions
 
----
+This document provides detailed definitions and explanations for the base DAX measures used in our Power BI projects. It includes business explanations, measure explanations, example use cases, and recommended visuals for each base measure.
 
 ## 1. # of Items (Base)
 
-**DAX Code:**
+### Business Explanation:
+This measure calculates the distinct number of items in the inventory history.
 
-# # of Items (Base) = DISTINCTCOUNT('Inventory History'[ItemId])
+### Measure Explanation:
+The `# of Items (Base)` measure counts the number of unique items based on the `ItemId` column in the `Inventory History` table.
 
-# # of Items
+### Example Use Case:
+- **Report**: Inventory Overview
+- **Purpose**: To understand the diversity of items in the inventory and track changes in inventory size.
 
-## Definition
-The # of Items (Base) measure counts the distinct number of items in the inventory history.
+### Recommended Visuals:
+- **Column Chart**: Displays the number of distinct items in the inventory.
+- **KPI Visual**: Highlights the total number of distinct items.
 
-## Explanation
-This measure calculates the number of unique items by counting the distinct values in the `ItemId` column of the `Inventory History` table.
-
-## Dependencies and Assumptions
-This measure assumes that the `Inventory History` table contains an `ItemId` column with unique item identifiers.
-
-## Error Handling
-If the `Inventory History` table is empty or the `ItemId` column is missing, this measure will return a blank value.
-
-## Related Links
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
-- [Total COGS $ (Base) Definition](path/to/Total-COGS-Base-Definition.md)
+---
 
 ## 2. Total Inventory (Base)
 
-# Total Inventory $ (Base) = SUM('Inventory History'
-[Inv_ExtPrice])
+### Business Explanation:
+This measure calculates the total inventory value by summing the extended price of inventory items.
 
-## Definition: The Total Inventory $ (Base) measure sums the Extended Price of all records in the inventory history.
+### Measure Explanation:
+The `Total Inventory (Base)` measure sums up the `Inv_ExtPrice` values in the `Inventory History` table to calculate the total dollar amount of inventory.
 
-## Explanation: This measure calculates the total inventory value by summing the Inv_ExtPrice column in the Inventory History table.
+### Example Use Case:
+- **Report**: Inventory Valuation
+- **Purpose**: To track the overall value of inventory at any given time.
 
-## Dependencies and Assumptions: This measure assumes that the Inventory History table contains an Inv_ExtPrice column with the extended price values of inventory items.
+### Recommended Visuals:
+- **Stacked Column Chart**: Displays total inventory value over time.
+- **KPI Visual**: Highlights the total value of inventory for quick overview.
 
-## Error Handling: If the Inventory History table is empty or the Inv_ExtPrice column is missing, this measure will return a blank value.
-
-## Related Links:  [# of Items (Base) Definition](path/to/Number-of-Items-Base-Definition.md)
-- [Total COGS $ (Base) Definition](path/to/Total-COGS-Base-Definition.md)
+---
 
 ## 3. Total COGS (Base)
 
-# Total COGS $ (Base) = SUM('TrxEntry'[Ext COGS $])
+### Business Explanation:
+This measure calculates the total cost of goods sold (COGS) by summing the extended COGS values from transaction entries.
 
-# Total COGS $ (Base) Measure
+### Measure Explanation:
+The `Total COGS (Base)` measure calculates the total cost of goods sold by summing the `Ext COGS $` values from the `TrxEntry` table.
 
-## Definition
-The Total COGS $ (Base) measure sums the Extended Cost of Goods Sold (COGS) of all transaction entries.
+### Example Use Case:
+- **Report**: Profitability Analysis
+- **Purpose**: To measure the total cost of goods sold during a specific period, providing insights into cost management and profitability.
 
-## Explanation
-This measure calculates the total COGS by summing the `Ext COGS $` column in the `TrxEntry` table.
+### Recommended Visuals:
+- **Line Chart**: Displays COGS trends over time.
+- **KPI Visual**: Highlights the total COGS for a specific period.
 
-## Dependencies and Assumptions
-This measure assumes that the `TrxEntry` table contains an `Ext COGS $` column with the extended cost of goods sold values of transaction entries.
+---
 
-## Error Handling
-If the `TrxEntry` table is empty or the `Ext COGS $` column is missing, this measure will return a blank value.
+## 4. Total Inventory Qty (Base)
 
-## Related Links
-- [# of Items (Base) Definition](path/to/Number-of-Items-Base-Definition.md)
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
+### Business Explanation:
+This measure calculates the total quantity of items in inventory.
 
-# 4. Total Inventory Qty (Base)
+### Measure Explanation:
+The `Total Inventory Qty (Base)` measure sums the `Quantity` values in the `Inventory History` table to calculate the total quantity of inventory items.
 
-# Total Inventory Qty (Base) = SUM('Inventory History'[Quantity])
+### Example Use Case:
+- **Report**: Inventory Level Monitoring
+- **Purpose**: To track the total number of units in inventory, assisting in stock management and forecasting.
 
-# Total Inventory Qty (Base) Measure
+### Recommended Visuals:
+- **Bar Chart**: Displays the total inventory quantity by category or location.
+- **KPI Visual**: Highlights the total inventory quantity for immediate analysis.
 
-## Definition
-The Total Inventory Qty (Base) measure sums the quantity of all records in the inventory history.
+---
 
-## Explanation
-This measure calculates the total inventory quantity by summing the `Quantity` column in the `Inventory History` table.
+## 5. Total COGS $ Year (Base)
 
-## Dependencies and Assumptions
-This measure assumes that the `Inventory History` table contains a `Quantity` column with the quantity values of inventory items.
+### Business Explanation:
+This measure calculates the total COGS over the past year.
 
-## Error Handling
-If the `Inventory History` table is empty or the `Quantity` column is missing, this measure will return a blank value.
+### Measure Explanation:
+The `Total COGS $ Year (Base)` measure sums the `Ext COGS $` values from the `TrxEntry` table over the past 365 days, using the `DATESINPERIOD` function to filter the dates.
 
-## Related Links
-- [# of Items (Base) Definition](path/to/Number-of-Items-Base-Definition.md)
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
-- [Total COGS $ (Base) Definition](path/to/Total-COGS-Base-Definition.md)
+### Example Use Case:
+- **Report**: Annual Profit and Loss Analysis
+- **Purpose**: To understand the total cost of goods sold for the past year, aiding in year-over-year financial analysis.
 
-# 5. Total Inventory $ Year (Base)
+### Recommended Visuals:
+- **Column Chart**: Displays total COGS over the past year, helping to compare monthly or quarterly trends.
+- **KPI Visual**: Highlights the total COGS for the past year for quick insights.
 
-# Total Inventory $ Year (Base) =
-CALCULATE(
-    SUM('Inventory History'[Inv_ExtPrice]),
-    DATESINPERIOD('DateDim'[Date], LASTDATE('DateDim'[Date]), -365, DAY)
-)
+---
 
-# Total Inventory $ Year (Base) Measure
+## 6. Total Inventory $ Year (Base)
 
-## Definition
-The Total Inventory $ Year (Base) measure sums the Extended Price of all records in the inventory history over the past year.
+### Business Explanation:
+This measure calculates the total inventory value over the past year.
 
-## Explanation
-This measure calculates the total inventory value over the past year by summing the `Inv_ExtPrice` column in the `Inventory History` table within a one-year period.
+### Measure Explanation:
+The `Total Inventory $ Year (Base)` measure sums the `Inv_ExtPrice` values from the `Inventory History` table over the past 365 days, using the `DATESINPERIOD` function to filter the dates.
 
-## Dependencies and Assumptions
-This measure assumes that the `Inventory History` table contains an `Inv_ExtPrice` column with the extended price values of inventory items and that a `DateDim` table is present to provide date context.
+### Example Use Case:
+- **Report**: Yearly Inventory Valuation
+- **Purpose**: To track the total value of inventory for the past year, providing insights into inventory management and financial performance.
 
-## Error Handling
-If the `Inventory History` table is empty or the `Inv_ExtPrice` column is missing, this measure will return a blank value.
+### Recommended Visuals:
+- **Stacked Column Chart**: Displays total inventory value over time for comparison across different periods.
+- **KPI Visual**: Highlights the total inventory value for the past year.
 
-## Related Links
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
-- [Total COGS $ Year (Base) Definition](path/to/Total-COGS-Year-Base-Definition.md)
+---
 
-# 6. Total COGS $ Year (Base)
+## Misc Measures
 
-# Total COGS $ Year (Base) =
-CALCULATE(
-    SUM('TrxEntry'[Ext COGS $]),
-    DATESINPERIOD('DateDim'[Date], LASTDATE('DateDim'[Date]), -365, DAY)
-)
+---
 
-# Total COGS $ Year (Base) Measure
+## 7. CurrentWeekNum
 
-## Definition
-The Total COGS $ Year (Base) measure sums the Extended Cost of Goods Sold (COGS) of all transaction entries over the past year.
+### Business Explanation:
+This measure calculates the current week number of the year.
 
-## Explanation
-This measure calculates the total COGS over the past year by summing the `Ext COGS $` column in the `TrxEntry` table within a one-year period.
+### Measure Explanation:
+The `CurrentWeekNum` measure returns the week number based on the current date.
 
-## Dependencies and Assumptions
-This measure assumes that the `TrxEntry` table contains an `Ext COGS $` column with the extended cost of goods sold values of transaction entries and that a `DateDim` table is present to provide date context.
+### Example Use Case:
+- **Report**: Weekly Activity Tracker
+- **Purpose**: To track and compare data on a weekly basis, highlighting trends in performance.
 
-## Error Handling
-If the `TrxEntry` table is empty or the `Ext COGS $` column is missing, this measure will return a blank value.
+### Recommended Visuals:
+- **Card Visual**: Displays the current week number for quick reference.
+- **Bar Chart**: Displays weekly data trends with the week number on the axis.
 
-## Related Links
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
-- [Total Inventory $ Year (Base) Definition](path/to/Total-Inventory-Year-Base-Definition.md)
+---
 
-# 7. Current WeekNum (Base)
+## 8. CurrentYear
 
-# CurrentWeekNum = WEEKNUM(TODAY(), 1)
+### Business Explanation:
+This measure returns the current year.
 
-# CurrentWeekNum Measure
+### Measure Explanation:
+The `CurrentYear` measure returns the year part of today's date, making it useful for time-based comparisons.
 
-## Definition
-The CurrentWeekNum measure calculates the current week number of the year.
+### Example Use Case:
+- **Report**: Yearly Data Comparison
+- **Purpose**: To filter or highlight data that is relevant to the current year, ensuring the user is working with up-to-date information.
 
-## Explanation
-This measure uses the `WEEKNUM` function to return the week number for the current date.
+### Recommended Visuals:
+- **Card Visual**: Displays the current year as a reference.
+- **Line Chart**: Displays current year data trends in comparison to previous years.
 
-## Dependencies and Assumptions
-This measure assumes that the model has access to the current date.
+---
 
-## Error Handling
-If the current date cannot be accessed, this measure will return a blank value.
+## 9. LastRefreshedDate
 
-## Related Links
-- [CurrentYear Definition](path/to/CurrentYear-Definition.md)
-- [LastRefreshedDate Definition](path/to/LastRefreshedDate-Definition.md)
+### Business Explanation:
+This measure displays the last refresh date of the data model.
 
-# 8. Current Year (Base)
+### Measure Explanation:
+The `LastRefreshedDate` measure returns the maximum date from the `Last Refresh Date` table, which indicates the last time the data was updated.
 
-# CurrentYear = YEAR(TODAY())
+### Example Use Case:
+- **Report**: Data Freshness Indicator
+- **Purpose**: To ensure the data displayed in reports is current and reflects the latest updates.
 
-# CurrentYear Measure
+### Recommended Visuals:
+- **Card Visual**: Displays the last refresh date for user awareness.
+- **KPI Visual**: Highlights the data freshness and updates the user on when the data was last refreshed.
 
-## Definition
-The CurrentYear measure calculates the current year.
+---
 
-## Explanation
-This measure uses the `YEAR` function to return the current year based on today's date.
+## 10. Greeting
 
-## Dependencies and Assumptions
-This measure assumes that the model has access to the current date.
+### Business Explanation:
+This measure generates a personalized greeting message for the user, along with some contextual information.
 
-## Error Handling
-If the current date cannot be accessed, this measure will return a blank value.
+### Measure Explanation:
+The `Greeting` measure uses the current user's login and the current date to generate a custom message, including the day of the year, week number, and last refresh date.
 
-## Related Links
-- [CurrentWeekNum Definition](path/to/CurrentWeekNum-Definition.md)
-- [LastRefreshedDate Definition](path/to/LastRefreshedDate-Definition.md)
+### Example Use Case:
+- **Report**: Personalized Dashboards
+- **Purpose**: To welcome the user, providing relevant data context, such as the current date and the last time data was refreshed.
 
-# 9. Last Refreshed Date (Base)
+### Recommended Visuals:
+- **Text Box**: Displays the personalized greeting message for the user.
+- **Card Visual**: Highlights key user-specific information like current week and date.
 
-# LastRefreshedDate = MAX('Last Refresh Date'[Last Refresh])
+---
 
-# LastRefreshedDate Measure
-
-## Definition
-The LastRefreshedDate measure gets the last refresh date from the 'Last Refresh Date' table.
-
-## Explanation
-This measure returns the maximum date from the `Last Refresh Date` column in the `Last Refresh Date` table, indicating the most recent data refresh.
-
-## Dependencies and Assumptions
-This measure assumes that the `Last Refresh Date` table contains a `Last Refresh` column with date values.
-
-## Error Handling
-If the `Last Refresh Date` table is empty or the `Last Refresh` column is missing, this measure will return a blank value.
-
-## Related Links
-- [CurrentWeekNum Definition](path/to/CurrentWeekNum-Definition.md)
-- [CurrentYear Definition](path/to/CurrentYear-Definition.md)

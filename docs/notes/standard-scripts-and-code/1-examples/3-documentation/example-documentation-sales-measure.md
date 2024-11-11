@@ -2,6 +2,12 @@
 id: example-documentation-sales-measure
 title: DAX Documentation for Sales Measures
 desc: This document provides detailed explanations and guides related to the DAX code used in our Power BI projects, including descriptions of logic, use cases, examples, and recommended visuals.
+tags:
+  - DAX
+  - Power BI
+  - Base Measures
+  - Business Intelligence
+  - KPIs
 created: 2024-11-04
 updated: 2024-11-04
 author: Eric Liles

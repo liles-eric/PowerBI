@@ -1,6 +1,7 @@
 ---
-title: Time-Based Measures Definitions
-description: This document provides detailed definitions and explanations for time-based measures used in the Power BI model. It includes a set of DAX measures for tracking inventory, cost of goods sold (COGS), and other relevant time-series data.
+id: time-based-measures-definitions
+title:  Time-Based Measures Definitions
+desc: This document provides detailed definitions and explanations for time-based measures used in the Power BI model. It includes a set of DAX measures for tracking inventory, cost of goods sold (COGS), and other relevant time-series data.
 tags:
   - DAX
   - Power BI
@@ -12,202 +13,113 @@ updated: 2024-11-11
 author: Eric Liles
 version: 1.0
 ---
-# Time-Based Measures
 
-**Purpose:** This document provides definitions and explanations for the base measures used in the Power BI model. For detailed information on how to use these measures, please refer to the README file.
+# Time-Based Measures Definitions
 
----
+This document provides detailed definitions and explanations of the DAX measures used in our Power BI projects for time-based analysis, including inventory, cost of goods sold (COGS), and other relevant time-series KPIs.
 
-# 1. 2 Weeks Ago # of Items (Time)
+## 1. [Average COGS $ Year (Base KPI)](#1-average-cogs-year-base-kpi)
 
-# 2 Weeks Ago # of Items (Time) = CALCULATE([# of Items (Base)], DATEADD(DateDim[Date], -14, DAY))
+### Business Explanation:
+Calculates the average cost of goods sold (COGS) over the past year.
 
-# 2 Weeks Ago # of Items (Time) Measure
+### Explanation:
+The `Average COGS $ Year (Base KPI)` measure calculates the average cost of goods sold over the last 365 days, using the `TrxEntry[Ext COGS $]` column and the `DateDim[Date]` table to filter the data for the relevant period.
 
-## Definition
-The 2 Weeks Ago # of Items (Time) measure calculates the distinct number of items two weeks ago based on the current week number.
+### Example Use Case:
+- **Report**: COGS Analysis
+- **Purpose**: To assess the average cost of goods sold over the past year to monitor profitability and trends.
 
-## Explanation
-This measure calculates the number of unique items by using the `# of Items (Base)` measure in combination with a filter that restricts the date to two weeks ago.
+### Recommended Visuals:
+- **Line Chart**: Displays the average COGS over the past year.
+- **KPI Visual**: Highlights the average COGS for quick insights.
 
-## Dependencies and Assumptions
-This measure assumes that the `DateDim` table contains the necessary `YearWeek` and `DayOfWeekNumber` columns, and the `Inventory History` table has an `ItemId` column.
+## 2. [Average Inventory $ Year (Base KPI)](#2-average-inventory-year-base-kpi)
 
-## Error Handling
-If the `DateDim` table or `Inventory History` table is missing necessary columns, this measure will return a blank value.
+### Business Explanation:
+Calculates the average inventory value over the past year.
 
-## Related Links
-- [# of Items (Base) Definition](path/to/Number-of-Items-Base-Definition.md)
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
+### Explanation:
+The `Average Inventory $ Year (Base KPI)` measure calculates the average inventory value over the past 365 days, using data from the `Inventory History` table and the `DateDim[Date]` table.
 
-# 2. 2 Weeks Ago Total Inventory $ (Time)
+### Example Use Case:
+- **Report**: Inventory Management
+- **Purpose**: To understand trends in inventory value over the last year and help with stock planning.
 
-# 2 Weeks Ago Total Inventory $ (Time) = CALCULATE([Total Inventory $ (Base)], DATEADD(DateDim[Date], -14, DAY))
+### Recommended Visuals:
+- **Line Chart**: Displays the average inventory value over the past year.
+- **KPI Visual**: Highlights the average inventory value for performance tracking.
 
-# 2 Weeks Ago Total Inventory $ (Time) Measure
+## 3. [WoW LW vs 2W # of Items % Var (KPI)](#3-wow-lw-vs-2w-items-percent-var-kpi)
 
-## Definition
-The 2 Weeks Ago Total Inventory $ (Time) measure calculates the total inventory value two weeks ago.
+### Business Explanation:
+Calculates the percentage variance of the number of items between last week and two weeks ago.
 
-## Explanation
-This measure calculates the total inventory value by using the `Total Inventory $ (Base)` measure and applying a filter to restrict the date to two weeks ago.
+### Explanation:
+The `WoW LW vs 2W # of Items % Var (KPI)` measure calculates the percentage variance of the number of items, comparing the counts from last week and two weeks ago. It uses `Last Week # of Items (Time)` and `2 Weeks Ago # of Items (Time)`.
 
-## Dependencies and Assumptions
-This measure assumes that the `Inventory History` table contains an `Inv_ExtPrice` column representing the inventory value.
+### Example Use Case:
+- **Report**: Sales Trend Analysis
+- **Purpose**: To monitor fluctuations in the number of items between last week and the previous week.
 
-## Error Handling
-If the `Inventory History` table is missing the `Inv_ExtPrice` column, this measure will return a blank value.
+### Recommended Visuals:
+- **Column Chart**: Displays the percentage variance of items over the past two weeks.
+- **KPI Visual**: Shows the percentage change for easy comparison.
 
-## Related Links
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
+## 4. [WoW LW vs 2W # of Items Var (Base KPI)](#4-wow-lw-vs-2w-items-var-base-kpi)
 
-# 3. Last Week # of Items (Time)
+### Business Explanation:
+Calculates the variance of the number of items between last week and two weeks ago.
 
-# Last Week # of Items (Time) = CALCULATE([# of Items (Base)], DATEADD(DateDim[Date], -7, DAY))
+### Explanation:
+The `WoW LW vs 2W # of Items Var (Base KPI)` measure calculates the difference in the number of items between last week and two weeks ago using `Last Week # of Items (Time)` and `2 Weeks Ago # of Items (Time)`.
 
-# Last Week # of Items (Time) Measure
+### Example Use Case:
+- **Report**: Inventory Analysis
+- **Purpose**: To analyze the changes in item count between two consecutive weeks.
 
-## Definition
-The Last Week # of Items (Time) measure calculates the distinct number of items one week ago based on the current week number.
+### Recommended Visuals:
+- **Bar Chart**: Displays the variance in the number of items between the two weeks.
+- **KPI Visual**: Highlights the variance to help spot large fluctuations.
 
-## Explanation
-This measure calculates the number of unique items for the previous week using the `# of Items (Base)` measure combined with a filter that restricts the date to the last week.
+## 5. [WoW LW vs 2W Total Inv $ % Var (KPI)](#5-wow-lw-vs-2w-total-inv-percent-var-kpi)
 
-## Dependencies and Assumptions
-This measure assumes that the `DateDim` table contains the necessary `YearWeek` and `DayOfWeekNumber` columns, and the `Inventory History` table has an `ItemId` column.
+### Business Explanation:
+Calculates the percentage variance of the total inventory value between last week and two weeks ago.
 
-## Error Handling
-If the `DateDim` table or `Inventory History` table is missing necessary columns, this measure will return a blank value.
+### Explanation:
+The `WoW LW vs 2W Total Inv $ % Var (KPI)` measure calculates the percentage variance in the total inventory value, comparing the total inventory values from `LW Total Inventory $ Year (Time)` and `2 Weeks Ago Total Inventory $ (Time)`.
 
-## Related Links
-- [# of Items (Base) Definition](path/to/Number-of-Items-Base-Definition.md)
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
+### Example Use Case:
+- **Report**: Inventory Valuation Analysis
+- **Purpose**: To monitor inventory value changes between last week and two weeks ago.
 
-# 4. LW Total Inventory $ (Time)
+### Recommended Visuals:
+- **Column Chart**: Displays the percentage change in total inventory value.
+- **KPI Visual**: Highlights the percentage change for easy evaluation.
 
-# LW Total Inventory $ (Time) = CALCULATE([Total Inventory $ (Base)], DATEADD(DateDim[Date], -7, DAY))
+## 6. [WoW LW vs 2W Total Inv $ Var (Base KPI)](#6-wow-lw-vs-2w-total-inv-var-base-kpi)
 
-# LW Total Inventory $ (Time) Measure
+### Business Explanation:
+Calculates the variance of the total inventory value between last week and two weeks ago.
 
-## Definition
-The LW Total Inventory $ (Time) measure calculates the total inventory value from one week ago.
+### Explanation:
+The `WoW LW vs 2W Total Inv $ Var (Base KPI)` measure calculates the difference in the total inventory value between last week and two weeks ago, comparing `LW Total Inventory $ (Time)` and `2 Weeks Ago Total Inventory $ (Time)`.
 
-## Explanation
-This measure calculates the total inventory value from last week using the `SUM` function combined with the `DATEADD` function to filter the date range.
+### Example Use Case:
+- **Report**: Inventory Valuation Changes
+- **Purpose**: To analyze fluctuations in total inventory value between two weeks.
 
-## Dependencies and Assumptions
-This measure assumes that the `Inventory History` table contains an `Inv_ExtPrice` column.
+### Recommended Visuals:
+- **Bar Chart**: Displays the variance in total inventory value.
+- **KPI Visual**: Highlights the variance to identify significant changes.
 
-## Error Handling
-If the `Inventory History` table is missing the `Inv_ExtPrice` column, this measure will return a blank value.
 
-## Related Links
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
 
-# 5. Same Week LY Total Inv $ (Time)
 
-# Same Week LY Total Inv $ (Time) = CALCULATE([Total Inventory $ (Base)], SAMEPERIODLASTYEAR(DateDim[Date]))
 
-# Same Week LY Total Inv $ (Time) Measure
 
-## Definition
-The Same Week LY Total Inv $ (Time) measure calculates the total inventory value for the same week last year.
 
-## Explanation
-This measure calculates the total inventory value for the corresponding week from the previous year using the `Total Inventory $ (Base)` measure and filters for the same week last year.
-
-## Dependencies and Assumptions
-This measure assumes that the `DateDim` table contains the necessary `Year`, `WeekNum`, and `Date` columns, and the `Inventory History` table has an `Inv_ExtPrice` column.
-
-## Error Handling
-If the `DateDim` table or `Inventory History` table is missing necessary columns, this measure will return a blank value.
-
-## Related Links
-- [Total Inventory $ (Base) Definition](path/to/Total-Inventory-Base-Definition.md)
-
-# 6.  Same Week LY Total Inv Qty (Time)
-
-# Same Week LY Total Inv Qty (Time) = CALCULATE([Total Inventory Qty (Base)], SAMEPERIODLASTYEAR(DateDim[Date]))
-
-# Same Week LY Total Inv Qty (Time) Measure
-
-## Definition
-The Same Week LY Total Inv Qty (Time) measure calculates the total inventory quantity for the same week last year.
-
-## Explanation
-This measure calculates the total inventory quantity for the corresponding week from the previous year using the `Total Inventory Qty (Base)` measure and filters for the same week last year.
-
-## Dependencies and Assumptions
-This measure assumes that the `DateDim` table contains the necessary `Year`, `WeekNum`, and `Date` columns, and the `Inventory History` table has an `Inv_Qty` column.
-
-## Error Handling
-If the `DateDim` table or `Inventory History` table is missing necessary columns, this measure will return a blank value.
-
-## Related Links
-- [Total Inventory Qty (Base) Definition](path/to/Total-Inventory-Qty-Base-Definition.md)
-
-# 7. 2 Weeks Ago Average COGS $ Year (Time)
-
-# 2 Weeks Ago Average COGS $ Year (Time) = CALCULATE([Average COGS $ Year (Base KPI)], DATEADD(DateDim[Date], -14, DAY))
-
-# 2 Weeks Ago Average COGS $ Year (Time) Measure
-
-## Definition
-The 2 Weeks Ago Average COGS $ Year (Time) measure calculates the average cost of goods sold (COGS) for the same week two weeks ago.
-
-## Explanation
-This measure calculates the average COGS for two weeks ago using the `Average COGS $ Year (Base KPI)` measure in combination with a filter that restricts the date to two weeks ago.
-
-## Dependencies and Assumptions
-This measure assumes that the `DateDim` table contains the necessary `YearWeek` and `DayOfWeekNumber` columns, and the `TrxEntry` table has a `COGS` column.
-
-## Error Handling
-If the `DateDim` table or `TrxEntry` table is missing necessary columns, this measure will return a blank value.
-
-## Related Links
-- [Average COGS $ Year (Base KPI) Definition](path/to/Average-COGS-Year-Base-KPI-Definition.md)
-
-# 8. 2 Weeks Ago Average Inventory $ Year (Time)
-
-# 2 Weeks Ago Average Inventory $ Year (Time) = CALCULATE([Average Inventory $ Year (Base KPI)], DATEADD(DateDim[Date], -14, DAY))
-
-# 2 Weeks Ago Average Inventory $ Year (Time) Measure
-
-## Definition
-The 2 Weeks Ago Average Inventory $ Year (Time) measure calculates the average inventory value for the same week two weeks ago.
-
-## Explanation
-This measure calculates the average inventory value for two weeks ago using the `Average Inventory $ Year (Base KPI)` measure and filters for the same period.
-
-## Dependencies and Assumptions
-This measure assumes that the `Inventory History` table contains an `Inv_ExtPrice` column representing the inventory value.
-
-## Error Handling
-If the `Inventory History` table is missing the `Inv_ExtPrice` column, this measure will return a blank value.
-
-## Related Links
-- [Average Inventory $ Year (Base KPI) Definition](path/to/Average-Inventory-Year-Base-KPI-Definition.md)
-
-# 9. LW Average COGS $ Year (Time)
-
-# LW Average COGS $ Year (Time) = CALCULATE([Average COGS $ Year (Base KPI)], DATEADD(DateDim[Date], -7, DAY))
-
-# LW Average COGS $ Year (Time) Measure
-
-## Definition
-The LW Average COGS $ Year (Time) measure calculates the average cost of goods sold (COGS) for the previous week.
-
-## Explanation
-This measure calculates the average COGS for the previous week using the `Average COGS $ Year (Base KPI)` measure in combination with a filter that restricts the date to last week.
-
-## Dependencies and Assumptions
-This measure assumes that the `DateDim` table contains the necessary `YearWeek` and `DayOfWeekNumber` columns, and the `TrxEntry` table has a `COGS` column.
-
-## Error Handling
-If the `DateDim` table or `TrxEntry` table is missing necessary columns, this measure will return a blank value.
-
-## Related Links
-- [Average COGS $ Year (Base KPI) Definition](path/to/Average-COGS-Year-Base-KPI-Definition.md)
 
 
 

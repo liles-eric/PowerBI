@@ -2,6 +2,12 @@
 id: common-dax-measures
 title: Examples Common DAX Measures
 desc: A collection of common DAX measures used in Power BI reports and dashboards, including brief business explanations and corresponding code examples.
+tags:
+  - DAX
+  - Power BI
+  - Base Measures
+  - Business Intelligence
+  - KPIs
 created: {{date:2024-11-04}}
 updated: {{date:2024-11-04}}
 author: Eric Liles

@@ -2,6 +2,12 @@
 id: base-measures-definitions
 title: Base-Measures-Definitions
 desc: This document provides detailed definitions and explanations of the DAX time-based measures used in our Power BI project, including error handling.
+tags:
+  - DAX
+  - Power BI
+  - Base Measures
+  - Business Intelligence
+  - KPIs
 created: 2024-11-04
 updated: 2024-11-04
 ---
@@ -12,7 +18,9 @@ This document offers concise definitions and explanations for DAX measures used 
 
 ## 1. # of Items (Base)
 
-# of Items (Base) = DISTINCTCOUNT('Inventory History'[ItemId])
+**DAX**
+Num of Items (Base) = 
+DISTINCTCOUNT('Inventory History'[ItemId])
 
 **Definition:** The `# of Items (Base)` measure counts the distinct number of items in the inventory history.
 
@@ -28,6 +36,7 @@ This document offers concise definitions and explanations for DAX measures used 
 
 ## 2. Total Inventory $ (Base)
 
+**DAX**
 Total Inventory $ (Base) = SUM('Inventory History'[Inv_ExtPrice])
 
 **Definition:** The `Total Inventory $ (Base)` measure sums the Extended Price of all records in the inventory history.
@@ -44,6 +53,7 @@ Total Inventory $ (Base) = SUM('Inventory History'[Inv_ExtPrice])
 
 ## 3. Total COGS $ (Base)
 
+**DAX**
 Total COGS $ (Base) = SUM('TrxEntry'[Ext COGS $])
 
 **Definition:** The `Total COGS $ (Base)` measure sums the Extended Cost of Goods Sold (COGS) of all transaction entries.
@@ -58,8 +68,9 @@ Total COGS $ (Base) = SUM('TrxEntry'[Ext COGS $])
 - [# of Items (Base) Definition](dendron://dax.definitions.base_measures#1--of-items-base)
 - [Total Inventory $ (Base) Definition](dendron://dax.definitions.base_measures#2-total-inventory--base)
 
-## Total Inventory Qty (Base)
+## 4. Total Inventory Qty (Base)
 
+**DAX**
 Total Inventory Qty (Base) = SUM('Inventory History'[Quantity])
 
 **Definition:** The `Total Inventory Qty (Base)` measure sums the quantity of all inventory items.
@@ -76,6 +87,7 @@ Total Inventory Qty (Base) = SUM('Inventory History'[Quantity])
 
 ## 5. Total Inventory $ Year (Base)
 
+**DAX**
 Total Inventory $ Year (Base) =
 CALCULATE(
     SUM('Inventory History'[Inv_ExtPrice]),
@@ -96,6 +108,7 @@ CALCULATE(
 
 ## 6. Total COGS $ Year (Base)
 
+**DAX**
 Total COGS $ Year (Base) =
 CALCULATE(
     SUM('TrxEntry'[Ext COGS $]),
@@ -116,6 +129,7 @@ CALCULATE(
 
 ## 7. CurrentWeekNum
 
+**DAX**
 WeekNum = WEEKNUM(TODAY(), 1)
 
 **Definition:** The `CurrentWeekNum` measure calculates the current week number of the year.
@@ -132,6 +146,7 @@ WeekNum = WEEKNUM(TODAY(), 1)
 
 ## 8. CurrentYear
 
+**DAX**
 CurrentYear = YEAR(TODAY())
 
 **Definition:** The `CurrentYear` measure calculates the current year.
@@ -148,6 +163,7 @@ CurrentYear = YEAR(TODAY())
 
 ## 9. LastRefreshedDate
 
+**DAX**
 LastRefreshedDate = MAX('Last Refresh Date'[Last Refresh])
 
 **Definition:** The `LastRefreshedDate` measure gets the last refresh date from the 'Last Refresh Date' table.
